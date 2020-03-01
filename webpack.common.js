@@ -82,7 +82,7 @@ module.exports = {
         {
           name: 'description',
           // your app description below
-          content: '',
+          content: 'testing out rhl',
         },
       ],
       links: [

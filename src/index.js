@@ -4,6 +4,7 @@ import 'es6-promise/auto';
 import 'isomorphic-fetch';
 import { AppContainer } from 'react-hot-loader';
 import Main from './components/Main';
+import App from './components/App';
 import styles from './styles.css';
 
 const render = (Component) => {
@@ -15,7 +16,7 @@ const render = (Component) => {
   );
 };
 
-render(Main);
+render(App);
 
 // webpack Hot Module Replacement API
 if (module.hot) {
