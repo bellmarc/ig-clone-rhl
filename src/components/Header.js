@@ -1,5 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import { ReactComponent as ExploreIcon } from "../assets/explore-icon.svg";
+import { ReactComponent as HeartIcon } from "../assets/heart-icon.svg";
+import { ReactComponent as AvatarIcon } from "../assets/profile-user-icon.svg";
 
 const Nav = styled.div`
   background-color: #fff;
@@ -7,51 +10,52 @@ const Nav = styled.div`
 `;
 
 const NavHeader = styled.div`
-    max-width: 1010px;
-    padding: 26px 20px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
+  max-width: 1010px;
+  padding: 26px 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
 `;
 
 const NavLeft = styled.div`
-    width: 33.333%;
-    text-align: left;
+  width: 33.333%;
+  text-align: left;
 `;
 
 const NavCenter = styled.div`
-    width: 33.333%;
-    text-align: center;
+  width: 33.333%;
+  text-align: center;
 `;
 
 const Input = styled.div`
-    font-size: 16px;
-    border: 1px solid #dbdbdb;
-    border-radius: 3px;
-    color: #262626;
+  font-size: 16px;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+  color: #262626;
 
-    padding: 7px 33px;
-    border-radius: 3px;
-    color: #999;
-    cursor: text;
-    font-size: 14px;
-    font-weight: 300;
-    text-align: center;
-    background: #fafafa;
+  padding: 7px 33px;
+  border-radius: 3px;
+  color: #999;
+  cursor: text;
+  font-size: 14px;
+  font-weight: 300;
+  text-align: center;
+  background: #fafafa;
 
-    &:active, &:focus {
-        text-align: left;
-    }
+  &:active,
+  &:focus {
+    text-align: left;
+  }
 `;
 
 const NavRight = styled.div`
-    width: 33.333%;
-    text-align: right;
+  width: 33.333%;
+  text-align: right;
 
-    svg {
-        margin-right: 20px;
-    }
+  svg {
+    margin-right: 20px;
+  }
 `;
 
 const MenuLink = styled.a``;
@@ -65,12 +69,19 @@ function Header() {
         <NavCenter>
           <Input type="text" placeholder="Search.." />
         </NavCenter>
+
         <NavRight>
-          <MenuLink href="#">{/* Compass svg  */}</MenuLink>
+          <MenuLink href="#">
+            <ExploreIcon />
+          </MenuLink>
 
-          <MenuLink href="#">{/* Explore */}</MenuLink>
+          <MenuLink href="#">
+            <HeartIcon />
+          </MenuLink>
 
-          <MenuLink href="#">{/* Avatar */}</MenuLink>
+          <MenuLink href="#">
+            <AvatarIcon />
+          </MenuLink>
         </NavRight>
       </NavHeader>
     </Nav>
