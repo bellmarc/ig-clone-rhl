@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { ReactComponent as ExploreIcon } from "../assets/explore-icon.svg";
-import { ReactComponent as HeartIcon } from "../assets/heart-icon.svg";
-import { ReactComponent as AvatarIcon } from "../assets/profile-user-icon.svg";
+import  ExploreIcon  from "../assets/explore-icon.svg";
+import HeartIcon  from "../assets/heart-icon.svg";
+import  AvatarIcon  from "../assets/profile-user-icon.svg";
 
 const Nav = styled.div`
   background-color: #fff;
@@ -60,6 +60,8 @@ const NavRight = styled.div`
 
 const MenuLink = styled.a``;
 
+const NavIcon = styled.img``;
+
 function Header() {
   return (
     <Nav>
@@ -72,15 +74,15 @@ function Header() {
 
         <NavRight>
           <MenuLink href="#">
-            <ExploreIcon />
+            ExploreIcon
           </MenuLink>
 
           <MenuLink href="#">
-            <HeartIcon />
+            HeartIcon
           </MenuLink>
 
           <MenuLink href="#">
-            <AvatarIcon />
+            AvatarIcon
           </MenuLink>
         </NavRight>
       </NavHeader>

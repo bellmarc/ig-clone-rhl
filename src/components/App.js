@@ -1,6 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import Header from "./Header";
+import Header from "./Header.js";
+import withFirebaseAuth from "react-with-firebase-auth";
+import * as firebase from "firebase/app";
+import "firebase/auth";
+import firebaseConfig from "../firebaseConfig";
+
+//Initialize the Firebase app using Configuration:
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+
+//Setup Providers to support/access Auth library:
+const firebaseAppAuth = firebaseApp.auth();
+const providers = {
+  googleProvider: new firebase.auth.GoogleAuthProvider()
+};
 
 const Button = styled.button`
   cursor: pointer;
@@ -21,15 +34,28 @@ const Button = styled.button`
   }
 `;
 
-function App() {
+function App(props) {
+  const firebaseUser = firebaseAppAuth.currentUser;
+  console.log(firebaseUser);
+
+  // const { user, signOut, signInWithGoogle } = this.props;
+  const { user, signOut, signInWithGoogle } = props;
   return (
     <div>
       <Header />
-      <h1>Hello IG Clone</h1>
-      <Button> Styled Button Component</Button>
-      <Button primary> Primary Btn </Button>
+      <h1>Hello </h1>
+      {user ? <p>Hello, {user.displayName}</p> : <p>Please sign in below.</p>}
+      {user ? (
+        <Button primary onClick={signOut}>
+          Signout
+        </Button>
+      ) : (
+        <Button onClick={signInWithGoogle}>Sign in with Google</Button>
+      )}
+      {/* <Button> Styled Button Component</Button>
+      <Button primary> Primary Btn </Button> */}
     </div>
   );
 }
-
-export default App;
+//wrapped export of App using the withFirebaseAuth HOC
+export default withFirebaseAuth({ providers, firebaseAppAuth })(App);
