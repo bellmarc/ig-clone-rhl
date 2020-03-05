@@ -4,7 +4,7 @@ import Header from "./Header.js";
 import withFirebaseAuth from "react-with-firebase-auth";
 import * as firebase from "firebase/app";
 import "firebase/auth";
-import firebaseConfig from "../firebaseConfig";
+import firebaseConfig from "../config";
 
 //Initialize the Firebase app using Configuration:
 const firebaseApp = firebase.initializeApp(firebaseConfig);
