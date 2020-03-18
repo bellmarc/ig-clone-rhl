@@ -3,14 +3,18 @@ import ReactDOM from 'react-dom';
 import 'es6-promise/auto';
 import 'isomorphic-fetch';
 import { AppContainer } from 'react-hot-loader';
-import Main from './components/Main';
+// import Main from './components/Main';
 import App from './components/App';
-import styles from './styles.css';
+// import styles from './styles.css';
+import UserProvider from "./context/UserProvider";
+
 
 const render = (Component) => {
   ReactDOM.render(
     <AppContainer>
-      <Component />
+      <UserProvider>
+        <Component />
+      </UserProvider>
     </AppContainer>,
     document.getElementById('root'),
   );

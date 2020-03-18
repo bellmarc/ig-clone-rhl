@@ -45,6 +45,20 @@ const LoginForm = ()=> {
     return (
         <LoginFormWrapper>
         {/* Email Input & Password here */}
+        <SignInEmailInput
+        type="text"
+        placeholder="Email"
+        value={email}
+        onChange={e => setEmail(e.target.value)}
+        required
+      />
+      <SignInPasswordInput
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={e => setPassword(e.target.value)}
+        required
+      />
         </LoginFormWrapper>
         // Sign Up Or Login Button ternary option
     )

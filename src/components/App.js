@@ -1,19 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import Header from "./Header.js";
-import withFirebaseAuth from "react-with-firebase-auth";
-import * as firebase from "firebase/app";
-import "firebase/auth";
-import firebaseConfig from "../config";
+import { UserContext } from "../context/UserProvider.js";
 
-//Initialize the Firebase app using Configuration:
-const firebaseApp = firebase.initializeApp(firebaseConfig);
-
-//Setup Providers to support/access Auth library:
-const firebaseAppAuth = firebaseApp.auth();
-const providers = {
-  googleProvider: new firebase.auth.GoogleAuthProvider()
-};
 
 const Button = styled.button`
   cursor: pointer;
@@ -35,16 +24,14 @@ const Button = styled.button`
 `;
 
 function App(props) {
-  const firebaseUser = firebaseAppAuth.currentUser;
-  console.log(firebaseUser);
+  const { user } = useContext(UserContext)
+  console.log(user);
 
-  // const { user, signOut, signInWithGoogle } = this.props;
-  const { user, signOut, signInWithGoogle } = props;
   return (
     <div>
       <Header />
       <h1>Hello </h1>
-      {user ? <p>Hello, {user.displayName}</p> : <p>Please sign in below.</p>}
+      {user ? <p>Hello, {user.displayName}</p> : <p>Please choose a way to sign in below.</p>}
       {user ? (
         <Button primary onClick={signOut}>
           Signout
@@ -57,5 +44,5 @@ function App(props) {
     </div>
   );
 }
-//wrapped export of App using the withFirebaseAuth HOC
-export default withFirebaseAuth({ providers, firebaseAppAuth })(App);
+
+export default App;
